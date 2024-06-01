@@ -7,12 +7,12 @@ import (
 )
 
 func AuthMiddleware() gin.HandlerFunc {
-    return func(c *gin.Context) {
-        apiKey := c.GetHeader("X-API-Key")
-        if apiKey != "your-api-key" {
-            c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid API key"})
-            return
-        }
-        c.Next()
-    }
+	return func(c *gin.Context) {
+		apiKey := c.GetHeader("X-API-Key")
+		if apiKey != "your-api-key" {
+			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid API key"})
+			return
+		}
+		c.Next()
+	}
 }
